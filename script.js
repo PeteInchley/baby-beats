@@ -6,19 +6,48 @@ window.addEventListener("load", () => {
 
 
     pads.forEach((pad, index) => {
-        // console.log(Math.random() * 255);
-        console.log(`hsl(${Math.floor(Math.random() * 360)}, ${Math.floor(Math.random() * 360)}%, ${Math.floor(Math.random() * 360)}%)`)
-        pad.style.background = `hsl(${Math.floor(Math.random() * 360)}, ${Math.floor(Math.random() * 100)}%, ${Math.floor(Math.random() * 100)}%)`;
+        pad.style.background = `hsl(${Math.floor(Math.random() * 360)}, ${Math.floor(Math.random() * 100 + 50)}%, ${Math.floor(Math.random() * 100)}%)`;
 
         pad.addEventListener("click", ()=> {
             let padColor = pad.style.background;
-            console.log(padColor);
-            pad.style.background = `hsl(${Math.floor(Math.random() * 360)}, ${Math.floor(Math.random() * 100)}%, ${Math.floor(Math.random() * 100)}%)`;
+            pad.style.background = `hsl(${Math.floor(Math.random() * 360)}, ${Math.floor(Math.random() * 100 + 50)}%, ${Math.floor(Math.random() * 100)}%)`;
             sounds[index].currentTime = 0;
             sounds[index].play();
-            // pad.style.background = padColor;
 
         })
     })
 })
 
+let fullScreen = document.getElementById("fullscreen");
+let isFullScreen = false;
+let elem = document.documentElement
+
+fullscreen.addEventListener("click", (e) => {
+    if (!isFullScreen) {
+
+        if (elem.requestFullscreen) {
+            elem.requestFullscreen();
+        } else if (elem.mozRequestFullScreen) { /* Firefox */
+            elem.mozRequestFullScreen();
+        } else if (elem.webkitRequestFullscreen) { /* Chrome, Safari & Opera */
+            elem.webkitRequestFullscreen();
+        } else if (elem.msRequestFullscreen) { /* IE/Edge */
+            elem.msRequestFullscreen();
+        }
+        fullscreen.innerText = "X"
+        isFullScreen = true;
+    } else if (isFullScreen) {
+
+        if (document.exitFullscreen) {
+            document.exitFullscreen();
+        } else if (document.mozCancelFullScreen) {
+            document.mozCancelFullScreen();
+        } else if (document.webkitExitFullscreen) {
+            document.webkitExitFullscreen();
+        } else if (document.msExitFullscreen) {
+            document.msExitFullscreen();
+        }
+        fullscreen.innerText = "[<>]"
+        isFullScreen = false;
+    }
+})

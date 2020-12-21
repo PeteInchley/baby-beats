@@ -39,3 +39,26 @@
 .pad1 {
     background:blue;
 }
+
+
+body {
+    background: #333;
+    margin: 0;
+    overflow: hidden;
+    text-align: center;
+    box-sizing: border-box;
+}
+
+#fullscreen {
+    position: fixed;
+    top: 20px;
+    right: 10px;
+    background: none;
+    color: white;
+    border: none;
+    z-index: 200;
+}
+
+#fullscreen:hover {
+    cursor: pointer;
+}
