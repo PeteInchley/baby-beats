@@ -26,6 +26,7 @@
     min-width:20%;
    flex: 1;
    border:1px solid black;
+   transition:background 0.3s linear;
    /* background:var(--base); */
 
 }
