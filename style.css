@@ -1,0 +1,40 @@
+
+:root {
+    --base: hsla(115, 100%, 75%);
+}
+
+* {
+    margin:0px;
+    background:#111
+
+}
+
+.pads {
+    display:inline-flex;
+    flex-wrap:wrap;
+    margin:auto;
+    text-align:center;
+    justify-content:center;
+    align-items: center;
+    flex-direction: row;
+    align-items:stretch;
+    height:100vh;
+    width:100%;
+}
+
+.pads>* {
+    min-width:20%;
+   flex: 1;
+   border:1px solid black;
+   /* background:var(--base); */
+
+}
+
+.container {
+    /* height:100vh; */
+    display:flex;
+}
+
+.pad1 {
+    background:blue;
+}
